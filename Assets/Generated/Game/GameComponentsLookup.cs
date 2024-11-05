@@ -8,15 +8,21 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
+    public const int Moving = 0;
+    public const int Position = 1;
+    public const int Speed = 2;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 3;
 
     public static readonly string[] componentNames = {
-
+        "Moving",
+        "Position",
+        "Speed"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(MovingComponent),
+        typeof(PositionComponent),
+        typeof(SpeedComponent)
     };
 }
