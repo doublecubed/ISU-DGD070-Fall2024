@@ -1,5 +1,6 @@
 using Entitas;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class MovementSystem : IExecuteSystem
 {
@@ -12,6 +13,26 @@ public class MovementSystem : IExecuteSystem
     
     public void Execute()
     {
-        Debug.Log("lol");
+        // Find all the entities that have the components I want
+        GameEntity[] entities = _contexts.game.GetEntities
+            (GameMatcher.AllOf(GameMatcher.Position)
+                .AnyOf(GameMatcher.Mover, GameMatcher.Speed)
+                .NoneOf(GameMatcher.Stopped));
+
+        foreach (GameEntity entity in entities)
+        {
+            Vector3 oldPosition = entity.position.Value;
+            Vector3 speed = Vector3.zero;
+            
+            if (entity.hasSpeed) speed += entity.speed.Value;
+            if (entity.hasMover) speed += entity.mover.Value;
+            
+            if (entity.hasBooster) speed *= (1 + entity.booster.Value);
+            if (entity.hasDampener) speed *= (1 - entity.dampener.Value);
+            
+            Vector3 newPosition = oldPosition + speed * Time.deltaTime;
+
+            entity.ReplacePosition(newPosition);
+        }
     }
 }

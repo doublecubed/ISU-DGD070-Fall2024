@@ -11,8 +11,10 @@ public class MovementFeature : Feature
     public MovementFeature(Contexts contexts)
     {
         _contexts = contexts;
-        
+
+        Add(new EntityCreatorSystem(contexts));
         Add(new MovementSystem(contexts));
+        Add(new BoosterSystem(contexts));
     }
 
     public sealed override Systems Add(ISystem system)

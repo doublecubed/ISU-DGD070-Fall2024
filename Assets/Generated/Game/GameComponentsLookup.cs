@@ -8,21 +8,33 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Moving = 0;
-    public const int Position = 1;
-    public const int Speed = 2;
+    public const int Booster = 0;
+    public const int Dampener = 1;
+    public const int Mover = 2;
+    public const int Moving = 3;
+    public const int Position = 4;
+    public const int Speed = 5;
+    public const int Stopped = 6;
 
-    public const int TotalComponents = 3;
+    public const int TotalComponents = 7;
 
     public static readonly string[] componentNames = {
+        "Booster",
+        "Dampener",
+        "Mover",
         "Moving",
         "Position",
-        "Speed"
+        "Speed",
+        "Stopped"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(BoosterComponent),
+        typeof(DampenerComponent),
+        typeof(MoverComponent),
         typeof(MovingComponent),
         typeof(PositionComponent),
-        typeof(SpeedComponent)
+        typeof(SpeedComponent),
+        typeof(StoppedComponent)
     };
 }
