@@ -12,9 +12,15 @@ public class MovementFeature : Feature
     {
         _contexts = contexts;
 
+        // Initialize systems
         Add(new EntityCreatorSystem(contexts));
+        
+        // Execute systems
         Add(new MovementSystem(contexts));
         Add(new BoosterSystem(contexts));
+        
+        // Cleanup systems
+        Add(new MovementCompletedSystem(contexts));
     }
 
     public sealed override Systems Add(ISystem system)

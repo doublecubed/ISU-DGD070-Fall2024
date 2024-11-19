@@ -8,15 +8,24 @@
 //------------------------------------------------------------------------------
 public static class InputComponentsLookup {
 
+    public const int HorizontalInput = 0;
+    public const int MouseClicked = 1;
+    public const int PlayerInput = 2;
+    public const int VerticalInput = 3;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 4;
 
     public static readonly string[] componentNames = {
-
+        "HorizontalInput",
+        "MouseClicked",
+        "PlayerInput",
+        "VerticalInput"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(HorizontalInputComponent),
+        typeof(MouseClickedComponent),
+        typeof(PlayerInputComponent),
+        typeof(VerticalInputComponent)
     };
 }
