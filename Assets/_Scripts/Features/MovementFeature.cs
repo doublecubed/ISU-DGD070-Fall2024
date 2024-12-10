@@ -16,6 +16,7 @@ public class MovementFeature : Feature
         Add(new EntityCreatorSystem(contexts));
         
         // Execute systems
+        Add(new FindEntitySystem(contexts));
         Add(new MovementSystem(contexts));
         Add(new BoosterSystem(contexts));
         

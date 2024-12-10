@@ -6,16 +6,16 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed partial class GameStateContext : Entitas.Context<GameStateEntity> {
+public sealed partial class NetworkContext : Entitas.Context<NetworkEntity> {
 
-    public GameStateContext()
+    public NetworkContext()
         : base(
-            GameStateComponentsLookup.TotalComponents,
+            NetworkComponentsLookup.TotalComponents,
             0,
             new Entitas.ContextInfo(
-                "GameState",
-                GameStateComponentsLookup.componentNames,
-                GameStateComponentsLookup.componentTypes
+                "Network",
+                NetworkComponentsLookup.componentNames,
+                NetworkComponentsLookup.componentTypes
             ),
             (entity) =>
 
@@ -24,7 +24,7 @@ public sealed partial class GameStateContext : Entitas.Context<GameStateEntity> 
 #else
                 new Entitas.SafeAERC(entity),
 #endif
-            () => new GameStateEntity()
+            () => new NetworkEntity()
         ) {
     }
 }

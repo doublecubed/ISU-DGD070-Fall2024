@@ -19,6 +19,9 @@ public class MovementSystem : IExecuteSystem
                 .AnyOf(GameMatcher.Mover, GameMatcher.Speed)
                 .NoneOf(GameMatcher.Stopped));
 
+        InputEntity[] inputEntitiesHorizontal = _contexts.input.GetEntities(InputMatcher.HorizontalInput);
+        InputEntity inputEntityHorizontal = _contexts.input.horizontalInputEntity;
+        
         foreach (GameEntity entity in entities)
         {
             Vector3 oldPosition = entity.position.Value;

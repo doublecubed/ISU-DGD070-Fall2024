@@ -12,6 +12,6 @@ public class BoosterSystem : IExecuteSystem
     
     public void Execute()
     {
-        Debug.Log("BOOOOOOST!!!!!");
+        
     }
 }

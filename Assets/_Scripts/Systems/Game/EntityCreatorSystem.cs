@@ -21,6 +21,8 @@ public class EntityCreatorSystem : IInitializeSystem
     {
         GameEntity entity = _context.CreateEntity();
         entity.AddPosition(Vector3.zero);
+        
+        entity.AddEnemyId(moverFlag < 2 ? 0 : 1);
 
         if (moverFlag == 0) entity.AddSpeed(Vector3.right);
         if (moverFlag == 1) entity.AddMover(Vector3.left);
